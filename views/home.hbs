@@ -1,0 +1,137 @@
+<style>
+    .jumbotron {
+    height: 100vh;
+}
+
+th {
+    padding-right:1rem;
+    text-align: right;
+}
+
+</style>
+
+<body>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    
+
+<div class="jumbotron">
+    <h1>ElectingUS</h1>
+    <div class="input-group input-group-lg">
+        <div class="input-group mb-3">
+            <input type="text" id="Input" class="form-control" placeholder="Enter your address" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button id="findButton" class="btn btn-outline-secondary" type="button">Button</button>
+            </div>
+        </div>
+    </divd>
+    <div id="results">
+
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+<script src="https://apis.google.com/js/client.js?onload=load"></script>
+
+
+<script>
+
+        
+// curl "https://www.googleapis.com/civicinfo/v2/voterinfo?key=<YOUR_API_KEY>&address=1263%20Pacific%20Ave.%20Kansas%20City%20KS&electionId=2000"
+
+/**
+     * Build and execute request to look up voter info for provided address.
+     * @param {string} address Address for which to fetch voter info.
+     * @param {function(Object)} callback Function which takes the
+     *     response object as a parameter.
+     */
+
+    myApiKey = 'AIzaSyA-alrA4NG9OOesuE1PE-Bb4Cpduujf0Hg';
+    userAddress = document.getElementById('Input').value;        
+
+    var button = document.getElementById('findButton');
+    var buttonPress = button.addEventListener("click", function( event ) {
+        var userAddress = document.getElementById('Input').value; 
+        gapi.client.setApiKey(myApiKey);
+        lookup(userAddress, renderResults);
+        });
+
+   
+    //lookup(userAddress)
+     function lookup(address, callback) {
+     /**
+      * 
+       * Election ID for which to fetch voter info.
+       * @type {number}
+       */
+      var electionId = 2000;
+
+      /**
+       * Request object for given parameters.
+       * @type {gapi.client.HttpRequest}
+       */
+      var req = gapi.client.request({
+        //   'path' : userAddress +'/civicinfo/v2/voterinfo',
+        //   'params' : {'electionId' : electionId, 'address' : address}
+        'path': userAddress + 'civicinfo/v2/representatives',
+        'params' : {includeOffices: true, address: address}
+
+      });
+     req.execute(callback);
+    }
+
+    /**
+     * Render results in the DOM.
+     * @param {Object} response Response object returned by the API.
+     * @param {Object} rawResponse Raw response from the API.
+     */
+    function renderResults(response, rawResponse) {
+        var el = document.getElementById('results');
+
+        if (!response || response.error) {
+            el.appendChild(document.createTextNode(
+                'Error while trying to fetch polling place'));
+            return;
+        }
+
+       
+
+        var normalizedAddress = `
+            <table>
+            <tr>
+                <th>Address:</th>    
+                <td>${response.normalizedInput.line1}<td>
+            </tr>
+
+            <tr>
+                <th>City: </th>
+                <td>${response.normalizedInput.city}<td>
+            </tr>
+            <tr>
+                <th>State: </th>
+                <td>${response.normalizedInput.state}<td>
+            </tr>
+            <tr>
+                <th>Zipcode: </th>
+                <td>${response.normalizedInput.zip}<td>
+            </tr>
+            </table>
+            `
+        el.innerHTML = normalizedAddress;
+   
+    }
+
+
+  </script>
+    <script src="https://apis.google.com/js/client.js?onload=load"></script>
+</script>
+
+</body>
