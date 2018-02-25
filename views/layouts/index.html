@@ -1,0 +1,222 @@
+
+
+<head>
+        <style>
+            .jumbotron {
+            height: 100vh;
+        }
+        
+        #Input {
+            padding-left:3px;
+        }
+        
+        
+        th {
+            padding-right:1rem;
+            text-align: right;
+        }
+        
+        .national-table >th {
+            font-size: 1.1rem;    
+        
+        }
+        
+        
+        
+        </style>
+        </head>
+        <body>
+        
+        
+            
+        <div class="container-fluid">
+        <div class="jumbotron mb-5">
+            <h1>ElectingUS</h1>
+            <div class="input-group input-group-lg">
+                <div class="input-group mb-3">
+                    <input type="text" id="Input" class="form-control" placeholder="4059 Mt Lee Dr. Hollywood, CA" aria-label="4059 Mt Lee Dr. Hollywood, CA" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button id="findButton" class="btn btn-outline-secondary" type="button">Button</button>
+                    </div>
+                </div>
+            </div>
+        
+            <div id="results">
+        
+            </div>
+        
+            {{!-- <div class="container">
+                <table id="table" data-height="460">
+                <thead>
+                    <tr>
+                        <th data-field="response.normalizedInput.line1">Item ID</th>
+                        <th data-field="name">Item Name</th>
+                        <th data-field="price">Item Price</th>
+                    </tr>
+                </thead>
+            </table>
+            </div> --}}
+        
+            {{!-- <script id="handlebars-demo" type="text/x-handlebars-template">
+                <div>
+                    {{data.AddLine}}
+                </div> 
+            </script> --}}
+        
+        
+        
+        </div>
+        
+           
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.amd.js"></script>
+
+
+        <script src="https://apis.google.com/js/client.js?onload=load"></script>
+        
+        <script>
+        
+        
+        
+        // this is a shitty work around because I'm lazy
+        
+        
+        // curl "https://www.googleapis.com/civicinfo/v2/voterinfo?key=<YOUR_API_KEY>&address=1263%20Pacific%20Ave.%20Kansas%20City%20KS&electionId=2000"
+        
+        /**
+             * Build and execute request to look up voter info for provided address.
+             * @param {string} address Address for which to fetch voter info.
+             * @param {function(Object)} callback Function which takes the
+             *     response object as a parameter.
+             */
+        
+        
+            myApiKey = 'AIzaSyA-alrA4NG9OOesuE1PE-Bb4Cpduujf0Hg';
+            userAddress = document.getElementById('Input').value;        
+        
+            var button = document.getElementById('findButton');
+            var buttonPress = button.addEventListener("click", function( event ) {
+                var userAddress = document.getElementById('Input').value; 
+                gapi.client.setApiKey(myApiKey);
+                lookup(userAddress, renderResults);
+                });
+        
+           
+            //lookup(userAddress)
+             function lookup(address, callback) {
+             /**
+              * 
+               * Election ID for which to fetch voter info.
+               * @type {number}
+               */
+              /**
+               * Request object for given parameters.
+               * @type {gapi.client.HttpRequest}
+               */
+              var req = gapi.client.request({
+                //   'path' : userAddress +'/civicinfo/v2/voterinfo',
+                //   'params' : {'electionId' : electionId, 'address' : address}
+                'path': userAddress + 'civicinfo/v2/representatives',
+                'params' : {includeOffices: true, address: address}
+        
+              });
+             req.execute(callback);
+            }
+        
+            /**
+             * Render results in the DOM.
+             * @param {Object} response Response object returned by the API.
+             * @param {Object} rawResponse Raw response from the API.
+             */
+            function renderResults(response, rawResponse) {
+                var el = document.getElementById('results');
+                
+                if (!response || response.error) {
+                    el.appendChild(document.createTextNode(
+                        'Error while trying to fetch polling place'));
+                    return;
+                }
+            console.log(response);
+            console.log(response.divisions);       
+            console.log(response.offices);
+        
+              
+              
+                var normalizedAddress = `
+                    <table class="table">
+                    <tr>
+                        <th>Address:</th>    
+                        <td>${response.normalizedInput.line1}<td>
+                    </tr>
+                    <tr>
+                        <th>City: </th>
+                        <td>${response.normalizedInput.city}<td>
+                    </tr>
+                    <tr>
+                        <th>State: </th>
+                        <td>${response.normalizedInput.state}<td>
+                    </tr>
+                        <tr>
+                            <th>Zipcode: </th>
+                            <td>${response.normalizedInput.zip}<td>
+                        </tr>
+                    </table>
+         
+                `
+                var offices = `
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">National Elected Officials</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <th>${response.offices[0].name }</th>    
+                            <td>${response.officials[0].name}</td>
+                        </tr>
+        
+                        <tr>
+                            <th>${response.offices[1].name}</th>
+                            <td>${response.officials[1].name}</td>
+                        </tr>
+                        <tr>
+                            <th>${response.offices[2].name}</th>
+                            <td>${response.officials[2].name}</td>
+                        </tr>
+                        <tr>
+                            <th>${response.offices[2].name}</th>
+                            <td>${response.officials[3].name}</td>
+                        </tr>
+                             <tr>
+                            <th>${response.offices[3].name}</th>
+                            <td>${response.officials[4].name}</td>
+                        </tr>
+                    </table>
+                    `
+             
+         
+                el.innerHTML = normalizedAddress + offices;
+        
+        
+        
+                var $table = $('#table');
+        
+                $(function () {
+                    $('table').addClass('table');
+                });
+        
+            }
+        
+        
+        
+          </script>
+            <script src="https://apis.google.com/js/client.js?onload=load"></script>
+        </script>
+        
+        </body>
+        

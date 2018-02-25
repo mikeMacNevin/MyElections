@@ -1,0 +1,56 @@
+#AddressTable td {
+    padding: .2rem;
+}
+
+.jumbotron {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #2F003A;
+    color:white;
+    border-radius: 0px;
+}
+
+.navbar>.navbar-toggler {
+    border: 2px solid dodgerblue;
+}
+
+
+
+.customer-toggler > .navbar-toggler-icon {
+background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+
+#findButton {
+    color: white;
+    border-color: white;
+}
+
+.col-12 {
+    padding-left:2rem;
+}
+
+img {
+max-height: 110px;
+margin: 0 auto;
+}
+
+thead {
+color:white;
+}
+
+td {
+width: 49%;
+}
+
+thead tr {
+background-color: rgba(95, 0, 119, 0.5);
+}
+#AddressTable td, #AddressTable th {
+    border: 0;
+
+}
+
+.national-table >th {
+font-size: 1.1rem;    
+}

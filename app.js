@@ -59,11 +59,11 @@
        
 
             var normalizedAddress = 
-                response.normalizedInput.line1 + ' ' +
+                response.line1 + ' ' +
                 response.normalizedInput.city + ', ' +
                 response.normalizedInput.state + ' ' +
                 response.normalizedInput.zip;
 
-
+          
     }
     <script src="https://apis.google.com/js/client.js?onload=load"></script>
