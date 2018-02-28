@@ -33,49 +33,67 @@
                 </li>
             </ul>
         </div>
-
     </nav>
         
-    <div class="jumbotron mb-5">
-        <h2>Enter your Address</h2>
-        <div class="input-group input-group-lg">
-            <div class="input-group mb-3">
-                <input type="text" id="Input" class="form-control" placeholder="4059 Mt Lee Dr. Hollywood, CA" aria-label="4059 Mt Lee Dr. Hollywood, CA" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button id="findButton" class="btn btn-outline-secondary" type="button">Search</button>
+    <div class="jumbotron jumbotron-fluid mb-2">
+        <div class="container address-container">
+            <h2>Enter your Address</h2>
+            <p>Find your representative.</p>
+            <div class="input-group input-group-lg">
+                <div class="input-group mb-3">
+                    <input type="text" id="Input" class="form-control" placeholder="4059 Mt Lee Dr. Hollywood, CA" aria-label="4059 Mt Lee Dr. Hollywood, CA" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button id="findButton" class="btn btn-outline-secondary" type="button">Search</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container">
+
+
+    <div class="container address-results">
         <div class="row">
             <div class="col-12 col-lg-6">
                 <div id="address"></div>
             </div>
             <div class="col-12 col-lg-6">
                 <br>
-            </div>
-        
+            </div>        
         </div>
         <div class="row" id="AddressOfficials">
             <div class="col-12 col-lg-6">
-                <div id="StOffices"> </div>
-            </div>
-            <div class="col-12 col-lg-6">
                 <div id="NatOffices"> </div>
-            </div>    
+            </div>   
+            <div class="col-12 col-lg-6">
+                <div id="StOffices"> </div>
+            </div>            
         </div>
     </div>
 
-
-
-    <footer>
-        <footer class="footer">
-            <div class="container">
-            <h3>ElectUS </h3>
+    <div id="carousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item">
+                <img class="d-block w-100" src="/images/old-congress.jpg" alt="Second slide">
+            </div>             
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="/images/obama-voting.jpg" alt="First slide">
             </div>
-        </footer>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="/images/supreme-court.jpg" alt="Second slide">
+            </div>        
+                       
+        </div>
+    </div>
+    
+
+
+
+    <footer class="footer">
+        <div class="container-fluid">
+            <h3>ElectUS </h3>
+        </div>
     </footer>
+
 
 
 
@@ -86,6 +104,9 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
 <script src="https://apis.google.com/js/client.js?onload=load"></script>
 <script src="/scripts/address.js"></script>
+<script src="/scripts/index.js"></script>
+
+
 
 </script>
 

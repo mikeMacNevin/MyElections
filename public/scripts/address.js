@@ -1,10 +1,3 @@
-/*  * Build and execute request to look up voter info for provided address.
-     * @param {string} address Address for which to fetch voter info.
-     * @param {function(Object)} callback Function which takes the
-     *     response object as a parameter.
-     */
-
-noPhoto = "images/image.png";
     myApiKey = 'AIzaSyA-alrA4NG9OOesuE1PE-Bb4Cpduujf0Hg';
     userAddress = document.getElementById('Input').value;        
     button = document.getElementById('findButton');
@@ -21,15 +14,7 @@ noPhoto = "images/image.png";
    
     //lookup(userAddress)
      function lookup(address, callback) {
-     /**
-      * 
-       * Election ID for which to fetch voter info.
-       * @type {number}
-       */
-      /**
-       * Request object for given parameters.
-       * @type {gapi.client.HttpRequest}
-       */
+     /*** @type {number}* @type {gapi.client.HttpRequest}**/
       var req = gapi.client.request({
         //   'path' : userAddress +'/civicinfo/v2/voterinfo',
         //   'params' : {'electionId' : electionId, 'address' : address}
@@ -39,12 +24,8 @@ noPhoto = "images/image.png";
       });
      req.execute(callback);
     }
-
-    /**
-     * Render results in the DOM.
-     * @param {Object} response Response object returned by the API.
-     * @param {Object} rawResponse Raw response from the API.
-     */
+//GOOGLE RENDER RESULTS
+    /*** Render results in the DOM* @param {Object} response Response object returned by the API* @param {Object} rawResponse Raw response from the API.*/
     function renderResults(response, rawResponse) {
         var address = document.getElementById('address');
         var NatOffices = document.getElementById('NatOffices');
@@ -60,33 +41,15 @@ noPhoto = "images/image.png";
         console.log(response.divisions);       
         console.log(response.offices);
      
-        
+///OFFICES TYPE
+//////////////////////////////////////        
         var normalizedAddress = `
-            <table class="table" id="AddressTable">            
-                <thead class="thead-active">
-                    <tr>
-                        <h3>Address </h3>
-                    </tr>
-                </thead>
-                <tbody>    
-                    <tr>
-                        <td>Street:</td>    
-                        <td>${response.normalizedInput.line1}</td>
-                    </tr>
-                    <tr>
-                        <td>City: </td>
-                        <td>${response.normalizedInput.city}</td>
-                    </tr>
-                    <tr>
-                        <td>State: </td>
-                        <td>${response.normalizedInput.state}</td>
-                    </tr>
-                    <tr>
-                        <td>Zipcode: </td>
-                        <td>${response.normalizedInput.zip}</td>
-                    </tr>
-                </tbody>
-            </table>
+                <ul> 
+                <li><b>Street: </b>${response.normalizedInput.line1}</li>
+                <li><b>City: </b>${response.normalizedInput.city}</li>
+                <li><b>State: </b>${response.normalizedInput.state}</li>                       
+                <li><b>Zipcode: </b>${response.normalizedInput.zip}</li>
+               </ul>
  
         `;
 
@@ -116,8 +79,8 @@ noPhoto = "images/image.png";
         
         for (var i = 0; i < 5; i++) {        
             if ( i > 2)  {
-                official = i - 1;
-                nationalFunction(official, i );
+            official = i - 1;
+            nationalFunction(official, i );
             } else {
             nationalFunction(i, i);
             }
@@ -132,7 +95,8 @@ noPhoto = "images/image.png";
 
         for (var i = 4; i < 9; i++) {
             if (response.officials[i + 1].photoUrl === undefined) {
-                 
+                var noPhoto = "images/image.png";
+                var url = response.officials[i + 1].url;
                 stateOffices +=`
                 <div class="row">
                     <div class="col-6">
@@ -140,7 +104,7 @@ noPhoto = "images/image.png";
                             <li><b>Office:</b> ${response.offices[i].name }</li>    
                             <li><b>Name:</b> ${response.officials[i + 1].name}</li>
                             <li><b>Party:</b> ${response.officials[i + 1].party}</li>
-    
+                            <li><b>Website</b>${url}</li>
                         </ul>
                     </div>
                     <div class="col-6">
@@ -148,6 +112,7 @@ noPhoto = "images/image.png";
                     </div>
                 </div>`;       
                 console.log(noPhoto);
+                console.log("Hey:" + url);
             }
             else {
                 let photo = response.officials[i + 1].photoUrl;

@@ -11,12 +11,6 @@ body {
 
 }
 
-.jumbotron {
-    max-width: 900px;
-    margin: 0 auto;
-    background-color: #2F003A;
-    color:white;
-}
 
 
 #Input {
@@ -25,6 +19,11 @@ body {
     input:-webkit-autofill {
         -webkit-box-shadow: 0 0 0px 1000px white inset;
     }    
+
+    .custom-toggler .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(247, 22, 22, 0.8' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+      }
+
 
 ul {
 list-style: none;
@@ -39,10 +38,12 @@ padding-left: 0
 
 nav h1 {
 color:#2F003A;
+margin-bottom: 0;
 }
 
 .nav-item a {
 color:#2F003A;
+font-size:  1.2rem;
 
 }
 
@@ -62,8 +63,12 @@ color:#2F003A;
     height: 60px; /* Set the fixed height of the footer here */
     line-height: 60px; /* Vertically center the text there */
     background-color: #2F003A;
-
+    color:white;
   }
+
+  .footer h3 {
+    margin-bottom: 0;
+}
 
   .footer .container {
     
@@ -74,3 +79,9 @@ color:#2F003A;
   }
   
 
+@media screen and (max-width: 576px) {
+    .navbar h1 {
+        font-size: 1.5rem;
+    }
+    
+} 

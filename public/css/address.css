@@ -3,13 +3,21 @@
 }
 
 .jumbotron {
-    max-width: 900px;
-    margin: 0 auto;
+    margin: 0;
     background-color: #2F003A;
     color:white;
     border-radius: 0px;
 }
 
+.jumbotron p {
+    font-size: 1.4rem;
+}
+
+@media screen and (max-width: 576px) {
+    .jumbotron .address-container {
+    margin: 0;     
+    }
+}
 .navbar>.navbar-toggler {
     border: 2px solid dodgerblue;
 }
@@ -30,7 +38,7 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32
     padding-left:2rem;
 }
 
-img {
+.address-results img {
 max-height: 110px;
 margin: 0 auto;
 }
@@ -54,3 +62,4 @@ background-color: rgba(95, 0, 119, 0.5);
 .national-table >th {
 font-size: 1.1rem;    
 }
+
