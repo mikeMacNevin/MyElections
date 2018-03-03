@@ -9,6 +9,10 @@
     border-radius: 0px;
 }
 
+.address-results h3 {
+    background-color: rgba(95, 0, 119, 0.5);
+}
+
 .jumbotron p {
     font-size: 1.4rem;
 }

@@ -12,7 +12,6 @@ body {
 }
 
 
-
 #Input {
     padding-left:3px;
     }
@@ -35,6 +34,9 @@ padding-left: 0
     padding-bottom: 5px;
 }
 
+#NavLogo {
+    max-height: 80px;
+}
 
 nav h1 {
 color:#2F003A;
@@ -82,6 +84,9 @@ font-size:  1.2rem;
 @media screen and (max-width: 576px) {
     .navbar h1 {
         font-size: 1.5rem;
+    }
+    .jumbotron {
+        text-align: center;
     }
     
 } 

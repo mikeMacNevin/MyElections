@@ -44,13 +44,13 @@
 ///OFFICES TYPE
 //////////////////////////////////////        
         var normalizedAddress = `
-                <ul> 
-                <li><b>Street: </b>${response.normalizedInput.line1}</li>
-                <li><b>City: </b>${response.normalizedInput.city}</li>
-                <li><b>State: </b>${response.normalizedInput.state}</li>                       
-                <li><b>Zipcode: </b>${response.normalizedInput.zip}</li>
-               </ul>
- 
+            <h4><b>Your Address:</b><br>  
+                ${response.normalizedInput.line1}
+                ${response.normalizedInput.city},
+                ${response.normalizedInput.state}                      
+                ${response.normalizedInput.zip}
+            </h4>
+        <br>
         `;
 
 
@@ -58,26 +58,30 @@
                     
         var nationalFunction = function(office, official) {
             
-            nationalOffices +=`
+            nationalOffices +=
+  
+      `      <!--Card-->
+            <div class="card testimonial-card my-1">        
                 <div class="row">
-                    <div class="col-6">
-                        <ul>
-                            <li><b>Office:</b> ${response.offices[office].name }</li>    
-                            <li><b>Name:</b> ${response.officials[official].name}</li>
-                            <li><b>Party:</b> ${response.officials[official].party}</li>
-            
-                        </ul>
+                    <div class="col-2">
+                        <div class="avatar mx-auto white px-1" ><img src="${response.officials[official].photoUrl}" class="rounded-circle"></div>            
                     </div>
-                    <div class="col-6">
-                        <img class="rounded mx-auto d-block" 
-                        src="${response.officials[official].photoUrl}">
+                    <div class="col-10">
+                        <div class="card-body">
+                            <!--Name-->
+                            <h4 class="card-title"><u>${response.offices[office].name }</u></h4>                
+                            <p>${response.officials[official].name}</p>
+                            <p>${response.officials[official].party}</p>
+                        </div>
                     </div>
-                </div>`
+                </div>
+            </div>
+        `
             }
         var natOffs = function(response) {
        
         
-        for (var i = 0; i < 5; i++) {        
+        for (var i = 4; i >= 0; i--) {        
             if ( i > 2)  {
             official = i - 1;
             nationalFunction(official, i );
@@ -93,49 +97,57 @@
        
   
 
-        for (var i = 4; i < 9; i++) {
-            if (response.officials[i + 1].photoUrl === undefined) {
-                var noPhoto = "images/image.png";
-                var url = response.officials[i + 1].url;
-                stateOffices +=`
-                <div class="row">
-                    <div class="col-6">
-                        <ul>
-                            <li><b>Office:</b> ${response.offices[i].name }</li>    
-                            <li><b>Name:</b> ${response.officials[i + 1].name}</li>
-                            <li><b>Party:</b> ${response.officials[i + 1].party}</li>
-                            <li><b>Website</b>${url}</li>
-                        </ul>
-                    </div>
-                    <div class="col-6">
-                        <img class="rounded mx-auto d-block" src="${noPhoto}">
-                    </div>
-                </div>`;       
-                console.log(noPhoto);
-                console.log("Hey:" + url);
-            }
-            else {
-                let photo = response.officials[i + 1].photoUrl;
-                stateOffices +=`
-                <div class="row">
-                    <div class="col-6">
-                        <ul>
-                            <li><b>Office:</b> ${response.offices[i].name }</li>    
-                            <li><b>Name:</b> ${response.officials[i + 1].name}</li>
-                            <li><b>Party:</b> ${response.officials[i + 1].party}</li>
-                        </ul>
-                    </div>
-                    <div class="col-6">
-                        <img class="rounded mx-auto d-block" src="${response.officials[i + 1].photoUrl}">
-                    </div>
-                </div>`;
-                console.log(photo);
-            }
+            for (var i = 4; i < 9; i++) {
+                if (response.officials[i + 1].photoUrl === undefined) {
+                    var noPhoto = "images/image.png";
+                    var url = response.officials[i + 1].url;
 
-            } 
+                    stateOffices +=`
+                    <div class="card testimonial-card my-1">        
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="avatar mx-auto white px-1" ><img src="${noPhoto}" class="rounded-circle"></div>            
+                            </div>
+                            <div class="col-10">
+                                <div class="card-body">
+                                    <!--Name-->
+                                    <h4 class="card-title"><u>${response.offices[i].name }</u></h4>                
+                                    <p>${response.officials[i + 1].name}</p>
+                                    <p>${response.officials[i + 1].party}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    `
+                }
+                else {
+                    let photo = response.officials[i + 1].photoUrl;
+                    stateOffices +=`
+                    <div class="card testimonial-card my-1">        
+
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="avatar mx-auto white px-1" ><img class="rounded mx-auto d-block" src="${response.officials[i + 1].photoUrl}"></div>
+                            </div>
+                            <div class="col-10">
+                                <div class="card-body">
+                                    <h4> ${response.offices[i].name }</h4>    
+                                    <p>${response.officials[i + 1].name}</p>
+                                    <p>${response.officials[i + 1].party}</p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>`
+                    console.log(photo);
+                } 
+            }         
+            return stateOffices;
     
-        return stateOffices;
         }
+    
+  
         natOffs(response);
         stateOffs(response);
 

@@ -4,6 +4,7 @@
 
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/css/mdb.min.css">
     <link rel="stylesheet"  type="text/css"  href="css/index.css">
     <link rel="stylesheet"  type="text/css"  href="css/address.css">
 
@@ -13,7 +14,7 @@
 <body>
 
     <nav class="navbar navbar-expand-lg" style="background-color: white">    
-        <a class="navbar-brand"><h1>ElectingUS</h1></a>
+        <a class="navbar-brand"><span><img id="NavLogo" class="img-fluid" src="./images/NavLogo.png"> </span></a>
         <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -38,7 +39,7 @@
     <div class="jumbotron jumbotron-fluid mb-2">
         <div class="container address-container">
             <h2>Enter your Address</h2>
-            <p>Find your representative.</p>
+            <p>Find your representatives</p>
             <div class="input-group input-group-lg">
                 <div class="input-group mb-3">
                     <input type="text" id="Input" class="form-control" placeholder="4059 Mt Lee Dr. Hollywood, CA" aria-label="4059 Mt Lee Dr. Hollywood, CA" aria-describedby="basic-addon2">
@@ -53,12 +54,10 @@
 
     <div class="container address-results">
         <div class="row">
-            <div class="col-12 col-lg-6">
+            <div class="col-12">
                 <div id="address"></div>
             </div>
-            <div class="col-12 col-lg-6">
-                <br>
-            </div>        
+      
         </div>
         <div class="row" id="AddressOfficials">
             <div class="col-12 col-lg-6">
@@ -70,6 +69,7 @@
         </div>
     </div>
 
+<div class="container"> 
     <div id="carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item">
@@ -81,9 +81,10 @@
             <div class="carousel-item">
                 <img class="d-block w-100" src="/images/supreme-court.jpg" alt="Second slide">
             </div>        
-                       
+                        
         </div>
     </div>
+</div> 
     
 
 
