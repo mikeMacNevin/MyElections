@@ -8,30 +8,11 @@ body {
     font-family: times;
     color:#2F003A;
     margin-bottom: 60px; /* Margin bottom by footer height */
-
 }
-
-
-#Input {
-    padding-left:3px;
-    }
-    input:-webkit-autofill {
-        -webkit-box-shadow: 0 0 0px 1000px white inset;
-    }    
-
-    .custom-toggler .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(247, 22, 22, 0.8' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-      }
-
-
-ul {
-list-style: none;
-padding-left: 0
-}
-
-#AddressOfficials .row {
-    padding-top: 5px;
-    padding-bottom: 5px;
+/*Navbar*/
+.navbar {
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 #NavLogo {
@@ -46,8 +27,22 @@ margin-bottom: 0;
 .nav-item a {
 color:#2F003A;
 font-size:  1.2rem;
-
 }
+
+#Input {
+    padding-left:3px;
+    }
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(247, 22, 22, 0.8' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+#AddressOfficials .row {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
 
 .navbar-toggler {
     border-color: #2F003A;
@@ -64,7 +59,7 @@ font-size:  1.2rem;
     width: 100%;
     height: 60px; /* Set the fixed height of the footer here */
     line-height: 60px; /* Vertically center the text there */
-    background-color: #2F003A;
+    background-color: rgba(96, 61, 105, 1);
     color:white;
   }
 
@@ -82,6 +77,18 @@ font-size:  1.2rem;
   
 
 @media screen and (max-width: 576px) {
+    .navbar {
+        padding-left: 1px;
+        padding-right: 1px;
+    }
+
+    .navbar-brand {
+        max-width: 70%;
+    }
+    .navbar-toggler {
+        padding: 3px;
+    }
+
     .navbar h1 {
         font-size: 1.5rem;
     }
@@ -90,3 +97,49 @@ font-size:  1.2rem;
     }
     
 } 
+
+
+.obama-voting {
+    height: 70vmin;
+    background: url('/images/obama-voting.jpg') no-repeat fixed center;
+    background-size: 97% 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .obama-voting {
+        height: 50vmin;
+    }
+}
+.old-congress {
+    min-height: 70vmin;
+    background: url('/images/old-congress.jpg') no-repeat center;
+    background-size: 97% 100%;
+}
+.old-congress {
+    font-size: 1.4rem;
+}
+
+.old-congress .row .col-sm-6:nth-child(2) {
+    background-color: rgba(96, 61, 105, 0.5);
+    color:white;
+}
+
+#NavBarRow div.card {
+    background-size: 100% 100%;
+}
+
+
+.card {
+
+}
+
+#NavPageRow div:nth-child(1) .card {
+}
+
+#NavPageRow div:nth-child(2) .card {
+
+}
+
+#NavPageRow div:nth-child(3) .card {
+
+}
