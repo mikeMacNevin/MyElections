@@ -105,15 +105,17 @@ font-size:  1.2rem;
     background-size: 97% 100%;
 }
 
-@media screen and (max-width: 768px) {
-    .obama-voting {
-        height: 50vmin;
-    }
-}
+
 .old-congress {
     min-height: 70vmin;
     background: url('/images/old-congress.jpg') no-repeat center;
     background-size: 97% 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .obama-voting {
+        height: 40vmin;
+    }
 }
 .old-congress {
     font-size: 1.4rem;

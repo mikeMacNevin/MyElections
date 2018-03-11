@@ -4,28 +4,33 @@
 
         <meta charset="utf-8">
 
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/css/mdb.css">
+
     <link rel="stylesheet"  type="text/css"  href="css/index.css">
     <link rel="stylesheet"  type="text/css"  href="css/address.css">
+    <link rel="stylesheet"  type="text/css"  href="css/cards.css">
+
 </head>
 
 
-<body>
+<body class="white-skin">
     <!-- NAVBAR -->
     <div id="NavHtml"></div>
     <!-- JUMBOTRON -->
     <div id="JumbotronHtml"></div>    
     <!-- ADDRESS RESULTS -->
     <div id="AddressResultsHtml"></div>
+    <!-- NAVIGATION RESULTS -->
+    <div id="NavigationCardsHtml"></div>
 
 
 
 
-
-<div class="container-fluid obama-voting mb-4 d-none d-sm-block" > 
+<div class="obama-voting  mb-4 d-none d-sm-block view jarallax" data-jarallax='{"speed": -1.0}' > 
 
 </div> 
 
@@ -78,6 +83,7 @@
         $("#NavHtml").load("views/navbar.html"); 
         $("#JumbotronHtml").load("views/jumbotron.html");
         $("#AddressResultsHtml").load("views/address-results.html");
+        $("#NavigationCardsHtml").load("views/navigation-cards.html");
 
       });</script>
 

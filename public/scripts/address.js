@@ -61,10 +61,10 @@
             nationalOffices +=
   
       `      <!--Card-->
-            <div class="card testimonial-card my-1">        
+            <div class="card my-1">        
                 <div class="row">
                     <div class="col-2">
-                        <div class="avatar mx-auto white px-1" ><img src="${response.officials[official].photoUrl}" class="rounded-circle"></div>            
+                        <div class="avatar mx-auto px-1" ><img src="${response.officials[official].photoUrl}" class="rounded-circle"></div>            
                     </div>
                     <div class="col-10">
                         <div class="card-body">
@@ -103,12 +103,12 @@
                     var url = response.officials[i + 1].url;
 
                     stateOffices +=`
-                    <div class="card testimonial-card my-1">        
+                    <div class="card  my-1">        
                         <div class="row">
-                            <div class="col-4">
-                                <div class="avatar mx-auto white px-1" ><img src="${noPhoto}" class="rounded-circle"></div>            
+                            <div class="col-2">
+                                <div class="avatar mx-auto px-1" ><img src="${noPhoto}" class="rounded-circle"></div>            
                             </div>
-                            <div class="col-8">
+                            <div class="col-10">
                                 <div class="card-body">
                                     <!--Name-->
                                     <h4 class="card-title"><u>${response.offices[i].name }</u></h4>                
@@ -124,13 +124,15 @@
                 else {
                     let photo = response.officials[i + 1].photoUrl;
                     stateOffices +=`
-                    <div class="card testimonial-card my-1">        
+                    <div class="card  my-1">        
 
                         <div class="row">
-                            <div class="col-4">
-                                <div class="avatar mx-auto white px-1" ><img class="rounded mx-auto d-block" src="${response.officials[i + 1].photoUrl}"></div>
+                            <div class="col-2">
+                                <div class="mx-auto px-1">
+                                <img class="mx-auto d-block" src="${response.officials[i + 1].photoUrl}">
                             </div>
-                            <div class="col-8">
+                            </div>
+                            <div class="col-10">
                                 <div class="card-body">
                                     <h4> ${response.offices[i].name }</h4>    
                                     <p>${response.officials[i + 1].name}</p>
