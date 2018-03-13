@@ -1,3 +1,7 @@
+<head>
+    <link rel="stylesheet"  type="text/css"  href="css/navbar.css">
+</head>
+
 <nav class="navbar navbar-expand-lg" style="background-color: white">    
         <a class="navbar-brand"><span><img id="NavLogo" class="img-fluid" src="./images/NavLogo.png"> </span></a>
         <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -5,18 +9,30 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">About</a>
+                <li class="nav-item hoverable text-right">
+                    <a class="nav-link active" href="/">Home</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item hoverable text-right">
+                        <a class="nav-link active" href="/about">About</a>
+                    </li>
+                <li class="nav-item hoverable text-right">
+                    <a class="nav-link" href="#">Elections</a>
+                </li>
+                <li class="nav-item hoverable text-right">
+                    <a class="nav-link" href="#">Learning</a>
+                </li>
+                <li class="nav-item hoverable text-right">
                     <a class="nav-link" href="#">Donate</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fab fa-facebook-square"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fab fa-github-square"></i></a>
-                </li>
+       
             </ul>
         </div>
-    </nav>
+    </nav>      
+    
+<!-- <script>
+    $('button').hover(function() {
+        $(img).toggleClass("animated pulse");
+
+    }
+)    
+</script> -->

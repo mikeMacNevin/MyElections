@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/css/mdb.css">
 
     <link rel="stylesheet"  type="text/css"  href="css/index.css">
+
     <link rel="stylesheet"  type="text/css"  href="css/address.css">
     <link rel="stylesheet"  type="text/css"  href="css/cards.css">
 
@@ -26,15 +27,19 @@
     <div id="AddressResultsHtml"></div>
     <!-- NAVIGATION RESULTS -->
     <div id="NavigationCardsHtml"></div>
+    <!-- FOOTER -->
+    <div id="FooterHtml"></div>
 
 
 
+ 
+<div class="container">
+    <div class="obama-voting  mb-4 d-none d-sm-block view jarallax" data-jarallax='{"speed": -1.0}' > 
+        
+    </div> 
+</div>
 
-<div class="obama-voting  mb-4 d-none d-sm-block view jarallax" data-jarallax='{"speed": -1.0}' > 
-
-</div> 
-
-<div class="container-fluid my-5 old-congress d-flex align-items-center">
+<div class="container-fluid my-5  old-congress d-flex align-items-center">
     <div class="container">
         <div class="row">
             <div class="col-sm-6"> </div>
@@ -47,6 +52,8 @@
     </div>
 </div>
 
+
+<br>
 <!-- <img class="d-block w-100" src="/images/supreme-court.jpg" alt="Second slide"> -->
 
                 
@@ -57,17 +64,14 @@
 
 
 
-    <footer class="footer mt-5">
-        <div class="container-fluid">
-            <h3>ElectUS </h3>
-        </div>
-    </footer>
+   
 
 
 
 
 
-     <script src ="scripts/jquery.js"></script>
+
+    <script src ="scripts/jquery.js"></script>
    
 <script src="https://apis.google.com/js/client.js?onload=load"></script>
 <script src="https://apis.google.com/js/client.js?onload=load"></script>
@@ -75,7 +79,7 @@
 <script src="/scripts/address.js"></script>
 <script src="/scripts/views/index.js"></script>
 
-
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -84,7 +88,7 @@
         $("#JumbotronHtml").load("views/jumbotron.html");
         $("#AddressResultsHtml").load("views/address-results.html");
         $("#NavigationCardsHtml").load("views/navigation-cards.html");
-
+        $("#FooterHtml").load("views/footer.html");        
       });</script>
 
 </script>

@@ -103,6 +103,7 @@ font-size:  1.2rem;
     height: 70vmin;
     background: url('/images/obama-voting.jpg') no-repeat fixed center;
     background-size: 97% 100%;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
 
@@ -110,6 +111,7 @@ font-size:  1.2rem;
     min-height: 70vmin;
     background: url('/images/old-congress.jpg') no-repeat center;
     background-size: 97% 100%;
+    
 }
 
 @media screen and (max-width: 768px) {

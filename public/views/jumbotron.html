@@ -1,13 +1,13 @@
-<div class="jumbotron jumbotron-fluid mb-2">
+<div id="JumbotronAddress" class="jumbotron jumbotron-fluid mb-2">
         <div class="layer d-flex align-items-center">
             <div class="container  address-container">
-                <h2>Enter your Address</h2>
-                <p>Find your representatives</p>
+                <h2>Find Your Representatives</h2>
+                <p>Enter your address</p>
                 <div class="input-group input-group-lg">
                     <div class="input-group mb-3">
                         <input type="text" id="Input" class="form-control" placeholder="4059 Mt Lee Dr. Hollywood, CA" aria-label="4059 Mt Lee Dr. Hollywood, CA" aria-describedby="basic-addon2">
                         <div class="input-group-append">
-                            <button id="findButton" class="btn btn-outline-secondary" type="button">Search</button>
+                            <button id="findButton" class="btn btn-deep-purple btn-outline-secondary" type="button">Search</button>
                         </div>
                     </div>
                 </div>
@@ -15,5 +15,18 @@
         </div>
     </div>
 
+   <script>
+    $('#findButton').hover(function() {
+        $(this).toggleClass("animated pulse");
+    });
    
+
+    $("#Input").keyup(function(event) {
+        if (event.keyCode == 13) {
+            $("#findButton").click();
+        }
+    });
+
+
+   </script>
    <script src="/scripts/address.js"></script>

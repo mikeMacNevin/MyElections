@@ -19,6 +19,21 @@ app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
+app.get('/about', function(req, res) {
+    res.sendFile(path.join(__dirname + '/public/pages/about.html'));
+});
+
+app.get('/elections', function(req, res) {
+    res.sendFile(path.join(__dirname + '/public/pages/elections.html'));
+});
+
+app.get('/learning', function(req, res) {
+    res.sendFile(path.join(__dirname + '/public/pages/learning.html'));
+});
+
+
+
+
 
   
  

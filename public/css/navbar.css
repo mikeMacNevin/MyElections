@@ -1,0 +1,8 @@
+li:hover {
+    background-color: rgba(95, 0, 119, 0.5);
+}
+
+li:not(:last-child) { 
+    border-right: 0.1px solid lightgrey;    
+
+}
