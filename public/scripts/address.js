@@ -1,8 +1,8 @@
-    myApiKey = 'AIzaSyA-alrA4NG9OOesuE1PE-Bb4Cpduujf0Hg';
-    userAddress = document.getElementById('Input').value;        
-    button = document.getElementById('findButton');
+    var myApiKey = 'AIzaSyA-alrA4NG9OOesuE1PE-Bb4Cpduujf0Hg';
+    var userAddress = document.getElementById('Input').value;        
+    var button = document.getElementById('findButton');
     
-    var buttonPress = button.addEventListener("click", function( event ) {
+    var buttonPress = function( event ) {
         address.innerHTML = "" 
         NatOffices.innerHTML = "";
         StOffices.innerHTML = "";
@@ -10,7 +10,7 @@
         var userAddress = document.getElementById('Input').value;
         gapi.client.setApiKey(myApiKey);
         lookup(userAddress, renderResults);
-        });
+        };
    
     //lookup(userAddress)
      function lookup(address, callback) {
