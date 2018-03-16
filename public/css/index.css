@@ -7,6 +7,7 @@ html {
 body {
     font-family: times;
     color:#2F003A;
+    background-color: rgb(252, 247, 255);
     margin-bottom: 60px; /* Margin bottom by footer height */
 }
 /*Navbar*/
