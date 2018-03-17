@@ -24,13 +24,16 @@ app.get('/about', function(req, res) {
 });
 
 app.get('/elections', function(req, res) {
-    res.sendFile(path.join(__dirname + '/public/pages/elections.html'));
+    res.sendFile(path.join(__dirname + '/public/pages/about.html'));
 });
 
 app.get('/learning', function(req, res) {
-    res.sendFile(path.join(__dirname + '/public/pages/learning.html'));
+    res.sendFile(path.join(__dirname + '/public/pages/about.html'));
 });
 
+app.get('/support', function(req, res) {
+    res.sendFile(path.join(__dirname + '/public/pages/about.html'));
+});
 
 
 

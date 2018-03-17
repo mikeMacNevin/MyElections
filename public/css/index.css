@@ -25,6 +25,7 @@ color:#2F003A;
 margin-bottom: 0;
 }
 
+
 .nav-item a {
 color:#2F003A;
 font-size:  1.2rem;
@@ -96,6 +97,12 @@ font-size:  1.2rem;
     .jumbotron {
         text-align: center;
     }
+
+    #findButton {
+        width: 60px;
+        height: 52px;
+        padding: 0;
+    }
     
 } 
 
@@ -119,6 +126,7 @@ font-size:  1.2rem;
     .obama-voting {
         height: 40vmin;
     }
+
 }
 .old-congress {
     font-size: 1.4rem;
@@ -134,8 +142,8 @@ font-size:  1.2rem;
 }
 
 
-.card {
-
+.nav-link {
+    
 }
 
 #NavPageRow div:nth-child(1) .card {

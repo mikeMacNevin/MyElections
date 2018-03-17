@@ -2,10 +2,20 @@
     var userAddress = document.getElementById('Input').value;        
     var button = document.getElementById('findButton');
     
+    var JumbotronHtml = document.getElementById('JumbotronHtml');
+    var NavigationCardsHtml = document.getElementById('NavigationCardsHtml');
+    var ObamaVoting = document.getElementById('ObamaVoting');
+    var OldCongress = document.getElementById('OldCongress');
+
+
+
+
     var buttonPress = function( event ) {
         address.innerHTML = "" 
+        NewButton.innerHTML = ""
         NatOffices.innerHTML = "";
         StOffices.innerHTML = "";
+
 
         var userAddress = document.getElementById('Input').value;
         gapi.client.setApiKey(myApiKey);
@@ -53,6 +63,16 @@
         <br>
         `;
 
+        var newSearch = `
+        <div class="text-center">
+        <a href="/">
+            <button id="NewSearch" class="btn btn-lg">
+            <i class="fas fa-arrow-left"></i>
+                New Search</button>
+        </a>
+        </div>
+        `
+
 
         var nationalOffices = "<h3>National Officials</h3>";
                     
@@ -63,10 +83,12 @@
       `      <!--Card-->
             <div class="card my-1">        
                 <div class="row">
-                    <div class="col-2">
-                        <div class="avatar mx-auto px-1" ><img src="${response.officials[official].photoUrl}" class="rounded-circle"></div>            
+                    <div class="col-4 ">
+                        <div class="h-80 d-flex align-items-center px-1" >
+                            <img src="${response.officials[official].photoUrl}" >
+                        </div>            
                     </div>
-                    <div class="col-10">
+                    <div class="col-8">
                         <div class="card-body">
                             <!--Name-->
                             <h4 class="card-title"><u>${response.offices[office].name }</u></h4>                
@@ -100,15 +122,17 @@
             for (var i = 4; i < 9; i++) {
                 if (response.officials[i + 1].photoUrl === undefined) {
                     var noPhoto = "images/image.png";
-                    var url = response.officials[i + 1].url;
+                    let url = response.officials[i + 1].url;
 
                     stateOffices +=`
                     <div class="card  my-1">        
                         <div class="row">
-                            <div class="col-2">
-                                <div class="avatar mx-auto px-1" ><img src="${noPhoto}" class="rounded-circle"></div>            
+                            <div class="col-4">
+                                <div class="mx-auto h-80 d-flex align-items-center px-1" >
+                                    <img src="${noPhoto}">
+                                </div>            
                             </div>
-                            <div class="col-10">
+                            <div class="col-8">
                                 <div class="card-body">
                                     <!--Name-->
                                     <h4 class="card-title"><u>${response.offices[i].name }</u></h4>                
@@ -127,12 +151,12 @@
                     <div class="card  my-1">        
 
                         <div class="row">
-                            <div class="col-2">
-                                <div class="mx-auto px-1">
-                                <img class="mx-auto d-block" src="${response.officials[i + 1].photoUrl}">
+                            <div class="col-4">
+                                <div class="mx-auto h-80 d-flex align-items-center px-1">
+                                    <img class="" src="${response.officials[i + 1].photoUrl}">
+                                </div>
                             </div>
-                            </div>
-                            <div class="col-10">
+                            <div class="col-8">
                                 <div class="card-body">
                                     <h4> ${response.offices[i].name }</h4>    
                                     <p>${response.officials[i + 1].name}</p>
@@ -148,20 +172,35 @@
             return stateOffices;
     
         }
-    
   
+    
+        
+        JumbotronHtml.innerHTML = "";
+        NavigationCardsHtml.innerHTML = "";
+        ObamaVoting.innerHTML = "";
+        OldCongress.display= "none";
+
         natOffs(response);
         stateOffs(response);
 
         address.innerHTML = normalizedAddress; 
         NatOffices.innerHTML = nationalOffices;
         StOffices.innerHTML = stateOffices;
-
+        NewButton.innerHTML = newSearch;
 
         var $table = $('#table');
 
         $(function () {
             $('table').addClass('table');
         });
+
+
+
+
+
+
+
+
+
 
     }

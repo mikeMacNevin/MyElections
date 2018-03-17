@@ -40,6 +40,11 @@
     border: 2px solid dodgerblue;
 }
 
+#NewSearch {
+    border: 1px solid rgb(47, 0, 58) !important;
+    color:  #2F003A !important;
+    background-color: rgb(252, 247, 255);
+}
 
 
 .customer-toggler > .navbar-toggler-icon {
@@ -59,7 +64,7 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32
 
 .address-results img {
 max-height: 110px;
-margin: 0 auto;
+margin: auto;
 }
 
 thead {
@@ -83,7 +88,9 @@ font-size: 1.1rem;
 }
 
 
-
+.card-body {
+    padding: 0.5rem;
+}
 
 
 @media screen and (max-width: 576px) {
