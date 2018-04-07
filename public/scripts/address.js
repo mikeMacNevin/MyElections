@@ -1,26 +1,17 @@
-    var myApiKey = 'AIzaSyA-alrA4NG9OOesuE1PE-Bb4Cpduujf0Hg';
-    var userAddress = document.getElementById('Input').value;        
-    var button = document.getElementById('findButton');
+    myApiKey = 'AIzaSyA-alrA4NG9OOesuE1PE-Bb4Cpduujf0Hg';
+    userAddress = document.getElementById('Input').value;        
+    button = document.getElementById('findButton');
     
-    var JumbotronHtml = document.getElementById('JumbotronHtml');
-    var NavigationCardsHtml = document.getElementById('NavigationCardsHtml');
-    var ObamaVoting = document.getElementById('ObamaVoting');
-    var OldCongress = document.getElementById('OldCongress');
-
-
-
-
-    var buttonPress = function( event ) {
+    var buttonPress = button.addEventListener("click", function( event ) {
         address.innerHTML = "" 
-        NewButton.innerHTML = ""
+        NewButton.innerHTML = "" ;
         NatOffices.innerHTML = "";
         StOffices.innerHTML = "";
-
 
         var userAddress = document.getElementById('Input').value;
         gapi.client.setApiKey(myApiKey);
         lookup(userAddress, renderResults);
-        };
+        });
    
     //lookup(userAddress)
      function lookup(address, callback) {
@@ -71,35 +62,43 @@
                 New Search</button>
         </a>
         </div>
-        `
+        `;
 
 
-        var nationalOffices = "<h3>National Officials</h3>";
+        var nationalOffices = "<h3> National Officials</h3>";
                     
         var nationalFunction = function(office, official) {
             
             nationalOffices +=
-  
-      `      <!--Card-->
-            <div class="card my-1">        
-                <div class="row">
-                    <div class="col-4 ">
-                        <div class="h-80 d-flex align-items-center px-1" >
-                            <img src="${response.officials[official].photoUrl}" >
-                        </div>            
-                    </div>
-                    <div class="col-8">
-                        <div class="card-body">
-                            <!--Name-->
-                            <h4 class="card-title"><u>${response.offices[office].name }</u></h4>                
-                            <p>${response.officials[official].name}</p>
-                            <p>${response.officials[official].party}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `
-            }
+            `      <!--Card-->
+                  <div class="card address-card my-1">        
+                      <div class="container">
+                      <h5 class="card-title"><u>${response.offices[office].name}</u></h5> 
+                          <div class="row">                    
+                              <div class="col-4 ">
+                                  <div class="h-80 d-flex align-items-center px-1" >
+                                      <img src="${response.officials[official].photoUrl}" >
+                                  </div>            
+                              </div>
+                              <div class="col-8">
+                                  <div class="card-body">
+                                      <!--Name-->
+                                                  
+                                      <ul class="list-unstyled">
+                                          <li>Name: ${response.officials[official].name}</li>
+                                          <li>Party: ${response.officials[official].party}</li>
+                                          <li>Phone: ${response.officials[official].phones[0]}</li>
+                                          <a href=${response.officials[official].urls[0]}>    
+                                              <button class="btn text-center">Website</button>
+                                          </a>
+                                      </ul>
+                                  </div>
+                              </div>  
+                          </div>
+                   </div>
+                  </div>
+           ` 
+        }
         var natOffs = function(response) {
        
         
@@ -114,7 +113,7 @@
         return nationalOffices;
         }
     
-        var stateOffices = "<h3>State Officials</h3>";
+        var stateOffices = "<h3> State Officials</h3>";
         var stateOffs = function(response) {
        
   
@@ -122,23 +121,30 @@
             for (var i = 4; i < 9; i++) {
                 if (response.officials[i + 1].photoUrl === undefined) {
                     var noPhoto = "images/image.png";
-                    let url = response.officials[i + 1].url;
+                    var url = response.officials[i + 1].url;
 
                     stateOffices +=`
-                    <div class="card  my-1">        
-                        <div class="row">
-                            <div class="col-4">
-                                <div class="mx-auto h-80 d-flex align-items-center px-1" >
-                                    <img src="${noPhoto}">
-                                </div>            
-                            </div>
-                            <div class="col-8">
-                                <div class="card-body">
-                                    <!--Name-->
-                                    <h4 class="card-title"><u>${response.offices[i].name }</u></h4>                
-                                    <p>${response.officials[i + 1].name}</p>
-                                    <p>${response.officials[i + 1].party}</p>
+                    <div class="card address-card  my-1">    
+                        <div class="container">
+                        <h4 class="card-title"><u>${response.offices[i].name }</u></h4>                    
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="mx-auto h-80 d-flex align-items-center px-1" >
+                                        <img src="${noPhoto}">
+                                    </div>            
                                 </div>
+                                <div class="col-8">
+                                    <div class="card-body">
+                                        <ul class="list-unstyled">
+                                            <li>Name: ${response.officials[i + 1].name}</li>
+                                            <li>Party: ${response.officials[i + 1].party}</li>
+                                            <li>Phone: ${response.officials[i + 1].phones[0]}</li>
+                                            <a href=${response.officials[i + 1].urls[0]}>    
+                                                <button class="btn text-center">Website</button>
+                                            </a>
+                                        </ul>
+                                    </div>
+                                </div>                                
                             </div>
                         </div>
                     </div>
@@ -148,7 +154,10 @@
                 else {
                     let photo = response.officials[i + 1].photoUrl;
                     stateOffices +=`
-                    <div class="card  my-1">        
+                    <div class="card address-card my-1">        
+
+                    <div class="container">
+                    <u><h4> ${response.offices[i].name }</h4> </u>   
 
                         <div class="row">
                             <div class="col-4">
@@ -158,23 +167,27 @@
                             </div>
                             <div class="col-8">
                                 <div class="card-body">
-                                    <h4> ${response.offices[i].name }</h4>    
-                                    <p>${response.officials[i + 1].name}</p>
-                                    <p>${response.officials[i + 1].party}</p>
+                                <ul class="list-unstyled">
+                                <li>Name: ${response.officials[i + 1].name}</li>
+                                <li>Party: ${response.officials[i + 1].party}</li>
+                                <li>Phone: ${response.officials[i + 1].phones[0]}</li>
+                                <a href=${response.officials[i + 1].urls[0]}>    
+                                    <button class="btn text-center">Website</button>
+                                </a>
+                            </ul>
                                 </div>
                             </div>
                             
                         </div>
-                    </div>`
+                    </div>
+                </div>`
                     console.log(photo);
                 } 
             }         
             return stateOffices;
     
         }
-  
-    
-        
+
         JumbotronHtml.innerHTML = "";
         NavigationCardsHtml.innerHTML = "";
         ObamaVoting.innerHTML = "";
@@ -187,20 +200,6 @@
         NatOffices.innerHTML = nationalOffices;
         StOffices.innerHTML = stateOffices;
         NewButton.innerHTML = newSearch;
-
-        var $table = $('#table');
-
-        $(function () {
-            $('table').addClass('table');
-        });
-
-
-
-
-
-
-
-
 
 
     }

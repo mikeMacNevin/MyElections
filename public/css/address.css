@@ -3,13 +3,14 @@
 }
 
 #JumbotronAddress {
-
     color:white;
     border-radius: 0px;
     background: url("/images/us-congress.jpg") ;
     background-size: 100% 100%;
     position: relative;
+    text-align: center;
 }
+
 
 #JumbotronAddress .layer {
     position:absolute;
@@ -32,7 +33,9 @@
 }
 
 .testimonial-card {
-    border: rgba(96, 61, 105, 1) 1px solid; ;
+    border: rgba(96, 61, 105, 1) 1px solid; 
+    color: rgb(96, 61, 105);
+
 }
 
 
@@ -47,13 +50,10 @@
 }
 
 
-.customer-toggler > .navbar-toggler-icon {
-background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-}
 
 
 #findButton {
-    color: white;
+    color: white !important;
     border-color: white;
     background-color: #2F003A;
 }
@@ -64,33 +64,13 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32
 
 .address-results img {
 max-height: 110px;
-margin: auto;
-}
-
-thead {
-color:white;
-}
-
-td {
-width: 49%;
-}
-
-thead tr {
-background-color: rgba(95, 0, 119, 0.5);
-}
-#AddressTable td, #AddressTable th {
-    border: 0;
-
-}
-
-.national-table >th {
-font-size: 1.1rem;    
+margin: 0 auto;
 }
 
 
-.card-body {
-    padding: 0.5rem;
-}
+
+
+
 
 
 @media screen and (max-width: 576px) {
@@ -118,10 +98,26 @@ font-size: 1.1rem;
     #JumbotronAddress  {
         height: 90vmin;
     }
+    #JumbotronAddress  h2 {
+        font-size:3rem;
+    }
+    #JumbotronAddress p {
+        font-size:1.7rem;
+    }
+    .input-group {
+        width: 85%;
+        margin: 0 auto;
+  
+    }
+    #Input {
+        padding-top:6px;
+        padding-bottom: 4px;
+    }
 }
 
 @media only screen and (min-width: 1200px) {
     #JumbotronAddress  {
         height: 100vmin;
     }
+  
 }

@@ -1,4 +1,18 @@
-.card {
-    background-color:rgba(96, 61, 105, 1);
-    color:white;
+.address-card {
+    background-color:rgb(252, 247, 255);
+    color: rgb(96, 61, 105);
+}
+
+.card-body {
+    padding-top: 0;
+}
+.address-card ul> li {
+    border-right:0 !important;
+}
+.address-card button {
+    background-color:rgb(252, 247, 255);
+
+    border: 1px solid rgb(96, 61, 105);
+    color: rgba(96, 61, 105, 1) !important;
+    margin-left: 0 ;
 }

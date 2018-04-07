@@ -24,16 +24,13 @@ app.get('/about', function(req, res) {
 });
 
 app.get('/elections', function(req, res) {
-    res.sendFile(path.join(__dirname + '/public/pages/about.html'));
+    res.sendFile(path.join(__dirname + '/public/pages/elections.html'));
 });
 
 app.get('/learning', function(req, res) {
-    res.sendFile(path.join(__dirname + '/public/pages/about.html'));
+    res.sendFile(path.join(__dirname + '/public/pages/learning.html'));
 });
 
-app.get('/support', function(req, res) {
-    res.sendFile(path.join(__dirname + '/public/pages/about.html'));
-});
 
 
 
@@ -41,7 +38,7 @@ app.get('/support', function(req, res) {
   
  
 
-app.listen((process.env.PORT || 3000));
+app.listen(3000);
 
 
 

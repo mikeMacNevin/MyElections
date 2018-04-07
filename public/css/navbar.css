@@ -1,8 +1,42 @@
-li:hover {
+.navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.customer-toggler > .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    }
+    
+#NavLogo {
+    max-height: 80px;
+}
+
+nav h1 {
+color:#2F003A;
+margin-bottom: 0;
+}
+
+.nav-item a {
+color:#2F003A;
+font-size:  1.2rem;
+}
+
+
+.navbar-toggler {
+    border-color: #2F003A;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #2F003A;
+
+}
+
+
+.nav-item:hover {
     background-color: rgba(95, 0, 119, 0.5);
 }
 
-li:not(:last-child) { 
+.nav-item:not(:last-child) { 
     border-right: 0.1px solid lightgrey;    
 
 }

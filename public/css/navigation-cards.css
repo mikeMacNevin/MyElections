@@ -1,8 +1,16 @@
-a {
-    color:white;
-    cursor: pointer;
-}
+
 
 .btn {
-    color:white !important;
+    color: white;
+    /* color:rgba(96, 61, 105, 1) !important; */
 }
+
+.navigation-card-body {
+    background-color: rgba(96, 61, 105, 0.02) !important;
+    color: rgba(96, 61, 105, 1);
+}
+
+.card-body {
+    border: 0.2px solid rgba(96, 61, 105, 0.5) !important;
+}
+
